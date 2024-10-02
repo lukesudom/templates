@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: trufflehog
+        name: Trufflehog
+        description: Pre-commit hook to detect secrets.
+        entry: bash -c 'trufflehog git file://. --since-commit HEAD --fail'
+        language: system
+        stages: ["commit", "push"]
